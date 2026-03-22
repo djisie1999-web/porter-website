@@ -1,0 +1,404 @@
+<!DOCTYPE html>
+<html lang="en-GB">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Contact Us — Porter Visitor Management | Book a Demo</title>
+  <meta name="description" content="Get in touch with the Porter team. Book a personalised demo, ask about pricing, or get technical support. We typically respond within 2 hours.">
+  <meta name="keywords" content="contact Porter, book a demo, visitor management demo, Porter support, visitor management pricing">
+  <meta name="author" content="Porter">
+  <link rel="canonical" href="https://getporter.co.uk/contact">
+
+  <!-- Open Graph -->
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://getporter.co.uk/contact">
+  <meta property="og:title" content="Contact Us — Porter Visitor Management | Book a Demo">
+  <meta property="og:description" content="Get in touch with the Porter team. Book a personalised demo, ask about pricing, or get technical support.">
+  <meta property="og:image" content="https://getporter.co.uk/images/og-image.png">
+  <meta property="og:locale" content="en_GB">
+  <meta property="og:site_name" content="Porter">
+
+  <!-- Twitter Card -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Contact Us — Porter Visitor Management | Book a Demo">
+  <meta name="twitter:description" content="Get in touch with the Porter team. Book a personalised demo, ask about pricing, or get technical support.">
+  <meta name="twitter:image" content="https://getporter.co.uk/images/og-image.png">
+
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+  <!-- ============================================================
+       1. LOADING SCREEN
+       ============================================================ -->
+  <div class="loading-screen loading-overlay" aria-hidden="true">
+    <div class="loading-logo"></div>
+    <div class="loading-spinner"></div>
+    <p class="loading-text">Loading Porter...</p>
+  </div>
+
+  <!-- ============================================================
+       2. NAVIGATION
+       ============================================================ -->
+  <nav class="navbar" role="navigation" aria-label="Main navigation">
+    <div class="container">
+      <a href="index.html" class="nav-logo" aria-label="Porter home">
+        <span class="logo-icon" aria-hidden="true">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg>
+        </span>
+        Porter
+      </a>
+
+      <div class="nav-links">
+        <a href="features.html">Features</a>
+        <a href="pricing.html">Pricing</a>
+        <a href="industries.html">Industries</a>
+        <a href="compare.html">Compare</a>
+        <a href="blog.html">Blog</a>
+        <a href="about.html">About</a>
+      </div>
+
+      <div class="nav-cta">
+        <a href="pricing.html" class="btn-nav btn-nav-primary">Start Free Trial</a>
+      </div>
+
+      <button class="nav-hamburger" aria-label="Open menu" aria-expanded="false">
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
+    </div>
+  </nav>
+
+  <!-- Mobile Menu -->
+  <div class="nav-mobile" role="dialog" aria-label="Mobile navigation menu">
+    <a href="features.html">Features</a>
+    <a href="pricing.html">Pricing</a>
+    <a href="industries.html">Industries</a>
+    <a href="compare.html">Compare</a>
+    <a href="blog.html">Blog</a>
+    <a href="about.html">About</a>
+    <a href="pricing.html" class="btn btn-primary" style="margin-top: 1rem;">Start Free Trial</a>
+  </div>
+
+  <!-- Nav spacer -->
+  <div class="nav-spacer"></div>
+
+  <!-- ============================================================
+       3. HERO — INNER PAGE
+       ============================================================ -->
+  <section class="hero hero-inner" aria-label="Contact hero">
+    <div class="hero-grid-overlay" aria-hidden="true"></div>
+    <div class="container">
+      <div class="section-header animate-on-scroll">
+        <h1>Let's talk</h1>
+        <p>Whether you want a personalised demo, have questions, or need help migrating — we're here.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================================================
+       4. TWO-COLUMN LAYOUT — FORM & INFO
+       ============================================================ -->
+  <section class="section" aria-label="Contact form and information">
+    <div class="container">
+      <div class="contact-grid">
+
+        <!-- LEFT COLUMN — Contact Form -->
+        <div class="animate-on-scroll">
+          <h2 style="font-size: var(--font-size-3xl); font-weight: 700; color: var(--color-secondary); margin-bottom: var(--space-8);">Send us a message</h2>
+
+          <form id="contact-form" class="contact-form">
+            <div class="form-row">
+              <div class="form-group">
+                <label for="contact-name">Name <span style="color: var(--color-error);">*</span></label>
+                <input type="text" id="contact-name" name="name" placeholder="Your full name" required>
+              </div>
+              <div class="form-group">
+                <label for="contact-email">Email <span style="color: var(--color-error);">*</span></label>
+                <input type="email" id="contact-email" name="email" placeholder="you@company.com" required>
+              </div>
+            </div>
+
+            <div class="form-row">
+              <div class="form-group">
+                <label for="contact-company">Company name</label>
+                <input type="text" id="contact-company" name="company" placeholder="Your company">
+              </div>
+              <div class="form-group">
+                <label for="contact-phone">Phone <span style="color: var(--color-gray-400); font-weight: 400;">(optional)</span></label>
+                <input type="tel" id="contact-phone" name="phone" placeholder="+44 ...">
+              </div>
+            </div>
+
+            <div class="form-group">
+              <label for="contact-subject">Subject</label>
+              <select id="contact-subject" name="subject">
+                <option value="" disabled selected>Select a topic</option>
+                <option value="general">General enquiry</option>
+                <option value="demo">Book a demo</option>
+                <option value="pricing">Pricing question</option>
+                <option value="support">Technical support</option>
+                <option value="partnership">Partnership</option>
+                <option value="other">Other</option>
+              </select>
+            </div>
+
+            <div class="form-group">
+              <label for="contact-message">Message <span style="color: var(--color-error);">*</span></label>
+              <textarea id="contact-message" name="message" placeholder="Tell us how we can help..." rows="5" required></textarea>
+            </div>
+
+            <button type="submit" class="btn btn-primary form-submit">Send Message</button>
+          </form>
+
+          <p class="form-note">We typically respond within 2 hours during business hours.</p>
+        </div>
+
+        <!-- RIGHT COLUMN — Contact Info & Demo Booking -->
+        <div class="animate-on-scroll" style="display: flex; flex-direction: column; gap: var(--space-8);">
+
+          <!-- Book a Demo Card -->
+          <div class="card" style="border-color: rgba(37, 99, 235, 0.2);">
+            <h3 style="font-size: var(--font-size-2xl); font-weight: 700; color: var(--color-secondary); margin-bottom: var(--space-4);">Book a demo</h3>
+            <p style="color: var(--color-gray-500); line-height: 1.7; margin-bottom: var(--space-6);">See Porter in action with a personalised 30-minute demo</p>
+
+            <!-- Calendly Embed Placeholder -->
+            <div style="background: var(--color-gray-50); border: 2px dashed var(--color-gray-200); border-radius: var(--radius-lg); padding: var(--space-10); text-align: center; margin-bottom: var(--space-6);">
+              <svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="#94a3b8" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" style="margin-bottom: var(--space-3);"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg>
+              <p style="font-size: var(--font-size-sm); color: var(--color-gray-400); margin-bottom: var(--space-2);">Calendly embed</p>
+              <a href="https://calendly.com/porter-demo/30min" target="_blank" rel="noopener noreferrer" style="font-size: var(--font-size-sm); color: var(--color-primary); text-decoration: underline;">https://calendly.com/porter-demo/30min</a>
+            </div>
+
+            <p style="font-size: var(--font-size-sm); color: var(--color-gray-500); text-align: center;">Or email us at <a href="mailto:hello@getporter.co.uk" style="color: var(--color-primary); font-weight: 500;">hello@getporter.co.uk</a></p>
+          </div>
+
+          <!-- Other Ways to Reach Us Card -->
+          <div class="card">
+            <h3 style="font-size: var(--font-size-xl); font-weight: 700; color: var(--color-secondary); margin-bottom: var(--space-6);">Other ways to reach us</h3>
+            <ul style="list-style: none; padding: 0; margin: 0; display: flex; flex-direction: column; gap: var(--space-5);">
+              <li style="display: flex; align-items: center; gap: var(--space-4); color: var(--color-gray-500); font-size: var(--font-size-base);">
+                <span style="font-size: 1.25rem;">&#128231;</span>
+                <div>
+                  <span style="font-weight: 500; color: var(--color-secondary);">Email</span><br>
+                  <a href="mailto:hello@getporter.co.uk" style="color: var(--color-primary);">hello@getporter.co.uk</a>
+                </div>
+              </li>
+              <li style="display: flex; align-items: center; gap: var(--space-4); color: var(--color-gray-500); font-size: var(--font-size-base);">
+                <span style="font-size: 1.25rem;">&#128222;</span>
+                <div>
+                  <span style="font-weight: 500; color: var(--color-secondary);">Phone</span><br>
+                  <a href="tel:+442012345678" style="color: var(--color-primary);">+44 (0) 20 1234 5678</a>
+                </div>
+              </li>
+              <li style="display: flex; align-items: center; gap: var(--space-4); color: var(--color-gray-500); font-size: var(--font-size-base);">
+                <span style="font-size: 1.25rem;">&#128172;</span>
+                <div>
+                  <span style="font-weight: 500; color: var(--color-secondary);">Live chat</span><br>
+                  Available Mon-Fri, 9am-6pm GMT
+                </div>
+              </li>
+              <li style="display: flex; align-items: center; gap: var(--space-4); color: var(--color-gray-500); font-size: var(--font-size-base);">
+                <span style="font-size: 1.25rem;">&#128205;</span>
+                <div>
+                  <span style="font-weight: 500; color: var(--color-secondary);">Location</span><br>
+                  London, United Kingdom
+                </div>
+              </li>
+            </ul>
+          </div>
+
+          <!-- Response Times Card -->
+          <div class="card">
+            <h3 style="font-size: var(--font-size-xl); font-weight: 700; color: var(--color-secondary); margin-bottom: var(--space-6);">Response times</h3>
+            <ul style="list-style: none; padding: 0; margin: 0; display: flex; flex-direction: column; gap: var(--space-4);">
+              <li style="display: flex; justify-content: space-between; align-items: center; padding-bottom: var(--space-4); border-bottom: 1px solid var(--color-gray-100);">
+                <span style="color: var(--color-gray-500);">General enquiries</span>
+                <span style="font-weight: 600; color: var(--color-secondary);">&lt; 2 hours</span>
+              </li>
+              <li style="display: flex; justify-content: space-between; align-items: center; padding-bottom: var(--space-4); border-bottom: 1px solid var(--color-gray-100);">
+                <span style="color: var(--color-gray-500);">Demo requests</span>
+                <span style="font-weight: 600; color: var(--color-secondary);">&lt; 1 hour</span>
+              </li>
+              <li style="display: flex; justify-content: space-between; align-items: center; padding-bottom: var(--space-4); border-bottom: 1px solid var(--color-gray-100);">
+                <span style="color: var(--color-gray-500);">Technical support</span>
+                <span style="font-weight: 600; color: var(--color-secondary);">&lt; 30 minutes</span>
+              </li>
+            </ul>
+            <p style="font-size: var(--font-size-xs); color: var(--color-gray-400); margin-top: var(--space-4);">All times during business hours (Mon-Fri, 9am-6pm GMT)</p>
+          </div>
+
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================================================
+       5. FAQ SECTION
+       ============================================================ -->
+  <section class="section faq-section" aria-label="Frequently asked questions">
+    <div class="container">
+      <div class="section-header animate-on-scroll">
+        <span class="section-label">FAQ</span>
+        <h2>Common questions</h2>
+        <p>Everything you need to know before getting in touch.</p>
+      </div>
+
+      <div class="faq-list">
+        <div class="faq-item animate-on-scroll">
+          <button class="faq-question" aria-expanded="false">
+            What happens in a demo?
+            <span class="faq-icon" aria-hidden="true">+</span>
+          </button>
+          <div class="faq-answer">
+            <div class="faq-answer-inner">
+              We'll give you a personalised 30-minute walkthrough of Porter, tailored to your industry and requirements. We'll show you the kiosk experience, dashboard, and answer any questions.
+            </div>
+          </div>
+        </div>
+
+        <div class="faq-item animate-on-scroll">
+          <button class="faq-question" aria-expanded="false">
+            Can you help us migrate from another system?
+            <span class="faq-icon" aria-hidden="true">+</span>
+          </button>
+          <div class="faq-answer">
+            <div class="faq-answer-inner">
+              Absolutely. We offer free migration assistance for all new customers. We'll help you transfer your data and configure Porter to match your existing workflows.
+            </div>
+          </div>
+        </div>
+
+        <div class="faq-item animate-on-scroll">
+          <button class="faq-question" aria-expanded="false">
+            Do you offer on-site setup?
+            <span class="faq-icon" aria-hidden="true">+</span>
+          </button>
+          <div class="faq-answer">
+            <div class="faq-answer-inner">
+              For customers with 10+ locations, we offer complimentary on-site setup and training. Contact us to discuss.
+            </div>
+          </div>
+        </div>
+
+        <div class="faq-item animate-on-scroll">
+          <button class="faq-question" aria-expanded="false">
+            Is there a partner programme?
+            <span class="faq-icon" aria-hidden="true">+</span>
+          </button>
+          <div class="faq-answer">
+            <div class="faq-answer-inner">
+              Yes. If you're an IT consultant, integrator, or reseller, we'd love to talk. Email <a href="mailto:partners@getporter.co.uk" style="color: var(--color-primary); font-weight: 500;">partners@getporter.co.uk</a> for details.
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================================================
+       6. CTA SECTION
+       ============================================================ -->
+  <section class="section" aria-label="Call to action">
+    <div class="container">
+      <div class="cta-banner animate-on-scroll">
+        <h2>Not ready to talk? Start exploring on your own.</h2>
+        <p>Try Porter free for 14 days. No credit card required.</p>
+        <a href="pricing.html" class="btn btn-primary btn-large">Start Free Trial</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================================================
+       7. FOOTER
+       ============================================================ -->
+  <footer class="footer" role="contentinfo">
+    <div class="container">
+      <div class="footer-grid">
+        <!-- Brand column -->
+        <div class="footer-brand">
+          <a href="index.html" class="nav-logo" aria-label="Porter home">
+            <span class="logo-icon" aria-hidden="true">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg>
+            </span>
+            Porter
+          </a>
+          <p>Enterprise visitor management at SMB prices. Built for UK businesses.</p>
+
+          <!-- Newsletter -->
+          <div class="footer-newsletter">
+            <p>Get product updates and tips.</p>
+            <form class="newsletter-form" aria-label="Newsletter signup">
+              <input type="email" placeholder="you@company.com" aria-label="Email address" required>
+              <button type="submit">Subscribe</button>
+            </form>
+          </div>
+
+          <!-- Social -->
+          <div class="footer-social">
+            <a href="https://www.linkedin.com/company/getporter" aria-label="LinkedIn" target="_blank" rel="noopener noreferrer">
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg>
+            </a>
+            <a href="https://twitter.com/getporter" aria-label="X (formerly Twitter)" target="_blank" rel="noopener noreferrer">
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg>
+            </a>
+          </div>
+        </div>
+
+        <!-- Product -->
+        <div class="footer-column">
+          <h4>Product</h4>
+          <ul>
+            <li><a href="features.html">Features</a></li>
+            <li><a href="pricing.html">Pricing</a></li>
+            <li><a href="industries.html">Industries</a></li>
+            <li><a href="compare.html">Compare</a></li>
+          </ul>
+        </div>
+
+        <!-- Company -->
+        <div class="footer-column">
+          <h4>Company</h4>
+          <ul>
+            <li><a href="about.html">About</a></li>
+            <li><a href="blog.html">Blog</a></li>
+            <li><a href="contact.html">Contact</a></li>
+            <li><a href="careers.html">Careers</a></li>
+          </ul>
+        </div>
+
+        <!-- Legal -->
+        <div class="footer-column">
+          <h4>Legal</h4>
+          <ul>
+            <li><a href="privacy.html">Privacy</a></li>
+            <li><a href="terms.html">Terms</a></li>
+            <li><a href="cookies.html">Cookies</a></li>
+            <li><a href="security.html">Security</a></li>
+          </ul>
+        </div>
+
+        <!-- Resources -->
+        <div class="footer-column">
+          <h4>Resources</h4>
+          <ul>
+            <li><a href="help.html">Help Centre</a></li>
+            <li><a href="api-docs.html">API Docs</a></li>
+            <li><a href="status.html">Status</a></li>
+            <li><a href="changelog.html">Changelog</a></li>
+          </ul>
+        </div>
+      </div>
+
+      <!-- Footer bottom -->
+      <div class="footer-bottom">
+        <p>&copy; 2026 Porter. All rights reserved.</p>
+        <p>Made in the UK &#127468;&#127463;</p>
+      </div>
+    </div>
+  </footer>
+
+  <!-- JS -->
+  <script src="main.js"></script>
+</body>
+</html>

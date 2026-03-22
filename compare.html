@@ -1,0 +1,964 @@
+<!DOCTYPE html>
+<html lang="en-GB">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Porter vs Envoy vs iLobby vs SwipedOn — Visitor Management Comparison</title>
+  <meta name="description" content="Compare Porter with Envoy, iLobby, SwipedOn and The Receptionist. See feature-by-feature breakdowns, pricing differences and why UK businesses choose Porter for visitor management.">
+  <meta name="keywords" content="visitor management comparison, Porter vs Envoy, Porter vs iLobby, Porter vs SwipedOn, visitor management UK">
+  <meta name="author" content="Porter">
+  <link rel="canonical" href="https://getporter.co.uk/compare">
+
+  <!-- Open Graph -->
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://getporter.co.uk/compare">
+  <meta property="og:title" content="Porter vs Envoy vs iLobby vs SwipedOn — Visitor Management Comparison">
+  <meta property="og:description" content="Compare Porter with the leading visitor management systems. Feature-by-feature breakdowns, pricing differences and migration guides.">
+  <meta property="og:image" content="https://getporter.co.uk/images/og-image.png">
+  <meta property="og:locale" content="en_GB">
+  <meta property="og:site_name" content="Porter">
+
+  <!-- Twitter Card -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Porter vs Envoy vs iLobby vs SwipedOn — Visitor Management Comparison">
+  <meta name="twitter:description" content="Compare Porter with the leading visitor management systems. Feature-by-feature breakdowns and pricing differences.">
+  <meta name="twitter:image" content="https://getporter.co.uk/images/og-image.png">
+
+  <link rel="stylesheet" href="styles.css">
+
+  <style>
+    /* ============================================================
+       COMPARE PAGE — Tab & Layout Styles
+       ============================================================ */
+
+    /* Tab navigation */
+    .tab-nav {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: var(--space-3);
+      margin-bottom: var(--space-12);
+    }
+
+    .tab-btn {
+      display: inline-flex;
+      align-items: center;
+      gap: var(--space-2);
+      padding: 12px 24px;
+      font-family: var(--font-family);
+      font-size: var(--font-size-sm);
+      font-weight: 600;
+      color: var(--color-gray-600);
+      background: var(--color-white);
+      border: 2px solid var(--color-gray-200);
+      border-radius: var(--radius-full);
+      cursor: pointer;
+      transition: all var(--transition-base);
+      white-space: nowrap;
+    }
+
+    .tab-btn:hover {
+      color: var(--color-primary);
+      border-color: var(--color-primary);
+      background: rgba(37, 99, 235, 0.04);
+    }
+
+    .tab-btn.active {
+      color: var(--color-white);
+      background: var(--color-primary);
+      border-color: var(--color-primary);
+      box-shadow: 0 4px 12px rgba(37, 99, 235, 0.3);
+    }
+
+    /* Tab content */
+    .tab-content {
+      display: none;
+    }
+
+    .tab-content.active {
+      display: block;
+      animation: tabFadeIn 0.4s ease;
+    }
+
+    @keyframes tabFadeIn {
+      from { opacity: 0; transform: translateY(12px); }
+      to   { opacity: 1; transform: translateY(0); }
+    }
+
+    /* Comparison intro */
+    .compare-intro {
+      max-width: 750px;
+      margin: 0 auto var(--space-10);
+      font-size: var(--font-size-lg);
+      color: var(--color-gray-600);
+      line-height: 1.7;
+      text-align: center;
+    }
+
+    /* Price highlight box */
+    .price-highlight {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: var(--space-6);
+      padding: var(--space-6) var(--space-8);
+      background: linear-gradient(135deg, rgba(37, 99, 235, 0.06), rgba(22, 163, 74, 0.06));
+      border: 1px solid rgba(37, 99, 235, 0.15);
+      border-radius: var(--radius-xl);
+      margin-bottom: var(--space-10);
+      text-align: center;
+      flex-wrap: wrap;
+    }
+
+    .price-highlight strong {
+      font-size: var(--font-size-xl);
+      color: var(--color-secondary);
+    }
+
+    .price-highlight .save-badge {
+      display: inline-flex;
+      align-items: center;
+      padding: 6px 16px;
+      background: var(--color-accent);
+      color: var(--color-white);
+      font-size: var(--font-size-sm);
+      font-weight: 700;
+      border-radius: var(--radius-full);
+    }
+
+    /* Annual savings callout */
+    .savings-callout {
+      text-align: center;
+      padding: var(--space-6) var(--space-8);
+      background: var(--color-gray-50);
+      border-radius: var(--radius-lg);
+      margin-top: var(--space-8);
+      margin-bottom: var(--space-8);
+      font-size: var(--font-size-base);
+      color: var(--color-gray-600);
+    }
+
+    .savings-callout strong {
+      color: var(--color-accent);
+      font-weight: 700;
+    }
+
+    /* Compare CTA */
+    .compare-cta {
+      text-align: center;
+      margin-top: var(--space-10);
+    }
+
+    /* Why-choose cards grid */
+    .why-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: var(--space-8);
+    }
+
+    .why-card {
+      background: var(--color-white);
+      border-radius: var(--radius-xl);
+      padding: var(--space-8);
+      text-align: center;
+      box-shadow: var(--shadow-md);
+      border: 1px solid var(--color-gray-100);
+      transition: all var(--transition-base);
+    }
+
+    .why-card:hover {
+      transform: translateY(-4px);
+      box-shadow: var(--shadow-xl);
+    }
+
+    .why-card .why-icon {
+      font-size: 2.5rem;
+      margin-bottom: var(--space-4);
+    }
+
+    .why-card h3 {
+      font-size: var(--font-size-xl);
+      color: var(--color-secondary);
+      margin-bottom: var(--space-2);
+    }
+
+    .why-card p {
+      font-size: var(--font-size-sm);
+      color: var(--color-gray-500);
+      line-height: 1.6;
+    }
+
+    /* Responsive */
+    @media (max-width: 768px) {
+      .tab-nav {
+        gap: var(--space-2);
+      }
+
+      .tab-btn {
+        padding: 10px 16px;
+        font-size: var(--font-size-xs);
+      }
+
+      .price-highlight {
+        flex-direction: column;
+        gap: var(--space-3);
+        padding: var(--space-4);
+      }
+
+      .why-grid {
+        grid-template-columns: repeat(2, 1fr);
+        gap: var(--space-4);
+      }
+    }
+
+    @media (max-width: 480px) {
+      .why-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- ============================================================
+       1. LOADING SCREEN
+       ============================================================ -->
+  <div class="loading-screen loading-overlay" aria-hidden="true">
+    <div class="loading-logo"></div>
+    <div class="loading-spinner"></div>
+    <p class="loading-text">Loading Porter...</p>
+  </div>
+
+  <!-- ============================================================
+       2. NAVIGATION
+       ============================================================ -->
+  <nav class="navbar" role="navigation" aria-label="Main navigation">
+    <div class="container">
+      <a href="index.html" class="nav-logo" aria-label="Porter home">
+        <span class="logo-icon" aria-hidden="true">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg>
+        </span>
+        Porter
+      </a>
+
+      <div class="nav-links">
+        <a href="features.html">Features</a>
+        <a href="pricing.html">Pricing</a>
+        <a href="industries.html">Industries</a>
+        <a href="compare.html">Compare</a>
+        <a href="blog.html">Blog</a>
+        <a href="about.html">About</a>
+      </div>
+
+      <div class="nav-cta">
+        <a href="pricing.html" class="btn-nav btn-nav-primary">Start Free Trial</a>
+      </div>
+
+      <button class="nav-hamburger" aria-label="Open menu" aria-expanded="false">
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
+    </div>
+  </nav>
+
+  <!-- Mobile Menu -->
+  <div class="nav-mobile" role="dialog" aria-label="Mobile navigation menu">
+    <a href="features.html">Features</a>
+    <a href="pricing.html">Pricing</a>
+    <a href="industries.html">Industries</a>
+    <a href="compare.html">Compare</a>
+    <a href="blog.html">Blog</a>
+    <a href="about.html">About</a>
+    <a href="pricing.html" class="btn btn-primary" style="margin-top: 1rem;">Start Free Trial</a>
+  </div>
+
+  <!-- Nav spacer -->
+  <div class="nav-spacer"></div>
+
+  <!-- ============================================================
+       3. HERO — Inner Page
+       ============================================================ -->
+  <section class="hero hero-inner" aria-label="Compare hero">
+    <div class="hero-grid-overlay" aria-hidden="true"></div>
+    <div class="container">
+
+      <div class="hero-badge animate-on-scroll fade-in-up">
+        <span class="badge-dot" aria-hidden="true"></span>
+        Porter vs the competition
+      </div>
+
+      <h1 class="animate-on-scroll fade-in-up delay-1">
+        See how Porter <span class="text-gradient">stacks up</span>
+      </h1>
+
+      <p class="hero-subtitle animate-on-scroll fade-in-up delay-2" style="max-width: 650px; margin: 0 auto; font-size: var(--font-size-xl); color: rgba(255,255,255,0.65);">
+        Feature-by-feature comparisons with the most popular visitor management systems. Spoiler: you'll save thousands.
+      </p>
+
+    </div>
+  </section>
+
+  <!-- ============================================================
+       4. COMPARISON TABS
+       ============================================================ -->
+  <section class="comparison-section" style="padding: var(--space-24) 0;" aria-label="Competitor comparisons">
+    <div class="container">
+
+      <div class="tabs">
+
+        <!-- Tab Navigation -->
+        <div class="tab-nav">
+          <button class="tab-btn active" data-tab="envoy">Porter vs Envoy</button>
+          <button class="tab-btn" data-tab="ilobby">Porter vs iLobby</button>
+          <button class="tab-btn" data-tab="swipedon">Porter vs SwipedOn</button>
+          <button class="tab-btn" data-tab="receptionist">Porter vs The Receptionist</button>
+        </div>
+
+        <!-- ============================
+             TAB 1: Porter vs Envoy
+             ============================ -->
+        <div class="tab-content active" data-tab="envoy" id="envoy">
+          <p class="compare-intro animate-on-scroll fade-in-up">
+            Envoy is the market leader in the US, but their pricing reflects it. Porter delivers the same enterprise features at a fraction of the cost &mdash; built specifically for UK businesses.
+          </p>
+
+          <div class="price-highlight animate-on-scroll fade-in-up">
+            <strong>Porter: &pound;79/mo &nbsp;vs&nbsp; Envoy: $329/mo</strong>
+            <span class="save-badge">Save 76%</span>
+          </div>
+
+          <div class="comparison-wrapper animate-on-scroll fade-in-up">
+            <table class="comparison-table">
+              <thead>
+                <tr>
+                  <th>Feature</th>
+                  <th class="highlight">Porter</th>
+                  <th>Envoy</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td>Monthly price</td>
+                  <td class="highlight"><strong>&pound;79</strong></td>
+                  <td>$329</td>
+                </tr>
+                <tr>
+                  <td>Annual contract required</td>
+                  <td class="highlight"><span class="comparison-check">No</span></td>
+                  <td><span class="comparison-partial">Yes (for best price)</span></td>
+                </tr>
+                <tr>
+                  <td>All features included</td>
+                  <td class="highlight"><span class="comparison-check">&#10003;</span></td>
+                  <td><span class="comparison-cross">&#10007;</span> <span class="comparison-partial">(3 tiers)</span></td>
+                </tr>
+                <tr>
+                  <td>Device support</td>
+                  <td class="highlight"><span class="comparison-check">Any device</span></td>
+                  <td><span class="comparison-partial">iPad only</span></td>
+                </tr>
+                <tr>
+                  <td>Kiosk app</td>
+                  <td class="highlight"><span class="comparison-check">&#10003;</span></td>
+                  <td><span class="comparison-check">&#10003;</span></td>
+                </tr>
+                <tr>
+                  <td>Host notifications</td>
+                  <td class="highlight"><span class="comparison-check">Email, SMS, Slack, Teams</span></td>
+                  <td><span class="comparison-partial">Email, Slack</span></td>
+                </tr>
+                <tr>
+                  <td>SMS notifications</td>
+                  <td class="highlight"><span class="comparison-check">Included</span></td>
+                  <td><span class="comparison-cross">Add-on cost</span></td>
+                </tr>
+                <tr>
+                  <td>Pre-registration</td>
+                  <td class="highlight"><span class="comparison-check">&#10003;</span></td>
+                  <td><span class="comparison-check">&#10003;</span></td>
+                </tr>
+                <tr>
+                  <td>Contractor management</td>
+                  <td class="highlight"><span class="comparison-check">&#10003;</span></td>
+                  <td><span class="comparison-partial">Premium tier only</span></td>
+                </tr>
+                <tr>
+                  <td>Analytics</td>
+                  <td class="highlight"><span class="comparison-check">&#10003;</span></td>
+                  <td><span class="comparison-partial">Premium tier only</span></td>
+                </tr>
+                <tr>
+                  <td>API access</td>
+                  <td class="highlight"><span class="comparison-check">&#10003;</span></td>
+                  <td><span class="comparison-partial">Enterprise tier only</span></td>
+                </tr>
+                <tr>
+                  <td>Badge printing</td>
+                  <td class="highlight"><span class="comparison-check">&#10003;</span></td>
+                  <td><span class="comparison-check">&#10003;</span></td>
+                </tr>
+                <tr>
+                  <td>Offline mode</td>
+                  <td class="highlight"><span class="comparison-check">&#10003;</span></td>
+                  <td><span class="comparison-cross">&#10007;</span></td>
+                </tr>
+                <tr>
+                  <td>Evacuation mode</td>
+                  <td class="highlight"><span class="comparison-check">&#10003;</span></td>
+                  <td><span class="comparison-check">&#10003;</span></td>
+                </tr>
+                <tr>
+                  <td>GDPR tools</td>
+                  <td class="highlight"><span class="comparison-check">Built-in</span></td>
+                  <td><span class="comparison-check">&#10003;</span></td>
+                </tr>
+                <tr>
+                  <td>UK data hosting</td>
+                  <td class="highlight"><span class="comparison-check">&#10003;</span></td>
+                  <td><span class="comparison-cross">&#10007;</span> <span class="comparison-partial">(US-based)</span></td>
+                </tr>
+                <tr>
+                  <td>Setup time</td>
+                  <td class="highlight"><span class="comparison-check">&lt; 1 hour</span></td>
+                  <td><span class="comparison-partial">2&ndash;4 weeks</span></td>
+                </tr>
+                <tr>
+                  <td>Free trial</td>
+                  <td class="highlight"><span class="comparison-check">14 days</span></td>
+                  <td><span class="comparison-check">14 days</span></td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+
+          <div class="savings-callout animate-on-scroll fade-in-up">
+            Annual cost for 5 locations: Porter <strong>&pound;4,740</strong> vs Envoy <strong>~&pound;15,600</strong> &mdash; <strong>Save &pound;10,860/year</strong>
+          </div>
+
+          <div class="compare-cta animate-on-scroll fade-in-up">
+            <a href="pricing.html" class="btn btn-primary">Switch from Envoy to Porter</a>
+          </div>
+        </div>
+
+        <!-- ============================
+             TAB 2: Porter vs iLobby
+             ============================ -->
+        <div class="tab-content" data-tab="ilobby" id="ilobby">
+          <p class="compare-intro animate-on-scroll fade-in-up">
+            iLobby targets enterprise customers with enterprise pricing. Porter gives you the same compliance and contractor management features without the annual commitment.
+          </p>
+
+          <div class="price-highlight animate-on-scroll fade-in-up">
+            <strong>Porter: &pound;79/mo &nbsp;vs&nbsp; iLobby: $199/mo</strong>
+            <span class="save-badge">Save 60%</span>
+          </div>
+
+          <div class="comparison-wrapper animate-on-scroll fade-in-up">
+            <table class="comparison-table">
+              <thead>
+                <tr>
+                  <th>Feature</th>
+                  <th class="highlight">Porter</th>
+                  <th>iLobby</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td>Monthly price</td>
+                  <td class="highlight"><strong>&pound;79</strong></td>
+                  <td>$199</td>
+                </tr>
+                <tr>
+                  <td>Annual contract required</td>
+                  <td class="highlight"><span class="comparison-check">No</span></td>
+                  <td><span class="comparison-cross">Yes</span></td>
+                </tr>
+                <tr>
+                  <td>All features included</td>
+                  <td class="highlight"><span class="comparison-check">&#10003;</span></td>
+                  <td><span class="comparison-cross">&#10007;</span> <span class="comparison-partial">(tiered)</span></td>
+                </tr>
+                <tr>
+                  <td>Device support</td>
+                  <td class="highlight"><span class="comparison-check">Any device</span></td>
+                  <td><span class="comparison-partial">iPad only</span></td>
+                </tr>
+                <tr>
+                  <td>Kiosk app</td>
+                  <td class="highlight"><span class="comparison-check">&#10003;</span></td>
+                  <td><span class="comparison-check">&#10003;</span></td>
+                </tr>
+                <tr>
+                  <td>Host notifications</td>
+                  <td class="highlight"><span class="comparison-check">Email, SMS, Slack, Teams</span></td>
+                  <td><span class="comparison-partial">Email, SMS</span></td>
+                </tr>
+                <tr>
+                  <td>SMS notifications</td>
+                  <td class="highlight"><span class="comparison-check">Included</span></td>
+                  <td><span class="comparison-check">Included</span></td>
+                </tr>
+                <tr>
+                  <td>Pre-registration</td>
+                  <td class="highlight"><span class="comparison-check">&#10003;</span></td>
+                  <td><span class="comparison-check">&#10003;</span></td>
+                </tr>
+                <tr>
+                  <td>Contractor management</td>
+                  <td class="highlight"><span class="comparison-check">&#10003;</span></td>
+                  <td><span class="comparison-partial">Add-on module</span></td>
+                </tr>
+                <tr>
+                  <td>Analytics</td>
+                  <td class="highlight"><span class="comparison-check">&#10003;</span></td>
+                  <td><span class="comparison-check">&#10003;</span></td>
+                </tr>
+                <tr>
+                  <td>API access</td>
+                  <td class="highlight"><span class="comparison-check">&#10003;</span></td>
+                  <td><span class="comparison-partial">Enterprise only</span></td>
+                </tr>
+                <tr>
+                  <td>Badge printing</td>
+                  <td class="highlight"><span class="comparison-check">&#10003;</span></td>
+                  <td><span class="comparison-check">&#10003;</span></td>
+                </tr>
+                <tr>
+                  <td>Offline mode</td>
+                  <td class="highlight"><span class="comparison-check">&#10003;</span></td>
+                  <td><span class="comparison-check">&#10003;</span></td>
+                </tr>
+                <tr>
+                  <td>Evacuation mode</td>
+                  <td class="highlight"><span class="comparison-check">&#10003;</span></td>
+                  <td><span class="comparison-check">&#10003;</span></td>
+                </tr>
+                <tr>
+                  <td>GDPR tools</td>
+                  <td class="highlight"><span class="comparison-check">Built-in</span></td>
+                  <td><span class="comparison-check">&#10003;</span></td>
+                </tr>
+                <tr>
+                  <td>UK data hosting</td>
+                  <td class="highlight"><span class="comparison-check">&#10003;</span></td>
+                  <td><span class="comparison-cross">&#10007;</span></td>
+                </tr>
+                <tr>
+                  <td>Setup time</td>
+                  <td class="highlight"><span class="comparison-check">&lt; 1 hour</span></td>
+                  <td><span class="comparison-partial">1&ndash;2 weeks (professional services)</span></td>
+                </tr>
+                <tr>
+                  <td>Free trial</td>
+                  <td class="highlight"><span class="comparison-check">14 days</span></td>
+                  <td><span class="comparison-cross">Demo only</span> <span class="comparison-partial">(no self-service trial)</span></td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+
+          <div class="compare-cta animate-on-scroll fade-in-up">
+            <a href="pricing.html" class="btn btn-primary">Switch from iLobby to Porter</a>
+          </div>
+        </div>
+
+        <!-- ============================
+             TAB 3: Porter vs SwipedOn
+             ============================ -->
+        <div class="tab-content" data-tab="swipedon" id="swipedon">
+          <p class="compare-intro animate-on-scroll fade-in-up">
+            SwipedOn is affordable but limited. As your needs grow, you'll quickly hit feature walls. Porter includes everything from day one.
+          </p>
+
+          <div class="price-highlight animate-on-scroll fade-in-up">
+            <strong>Porter: &pound;79/mo &nbsp;vs&nbsp; SwipedOn: $55/mo (but limited)</strong>
+            <span class="save-badge">All features included</span>
+          </div>
+
+          <div class="comparison-wrapper animate-on-scroll fade-in-up">
+            <table class="comparison-table">
+              <thead>
+                <tr>
+                  <th>Feature</th>
+                  <th class="highlight">Porter</th>
+                  <th>SwipedOn</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td>Monthly price</td>
+                  <td class="highlight"><strong>&pound;79</strong></td>
+                  <td>$55</td>
+                </tr>
+                <tr>
+                  <td>Annual contract required</td>
+                  <td class="highlight"><span class="comparison-check">No</span></td>
+                  <td><span class="comparison-check">No</span></td>
+                </tr>
+                <tr>
+                  <td>All features included</td>
+                  <td class="highlight"><span class="comparison-check">&#10003;</span></td>
+                  <td><span class="comparison-cross">&#10007;</span> <span class="comparison-partial">(tiered)</span></td>
+                </tr>
+                <tr>
+                  <td>Device support</td>
+                  <td class="highlight"><span class="comparison-check">Any device</span></td>
+                  <td><span class="comparison-partial">iPad only</span></td>
+                </tr>
+                <tr>
+                  <td>Kiosk app</td>
+                  <td class="highlight"><span class="comparison-check">&#10003;</span></td>
+                  <td><span class="comparison-check">&#10003;</span></td>
+                </tr>
+                <tr>
+                  <td>Host notifications</td>
+                  <td class="highlight"><span class="comparison-check">Email, SMS, Slack, Teams</span></td>
+                  <td><span class="comparison-partial">Email, Slack</span></td>
+                </tr>
+                <tr>
+                  <td>SMS notifications</td>
+                  <td class="highlight"><span class="comparison-check">Included</span></td>
+                  <td><span class="comparison-partial">Add-on</span></td>
+                </tr>
+                <tr>
+                  <td>Pre-registration</td>
+                  <td class="highlight"><span class="comparison-check">&#10003;</span></td>
+                  <td><span class="comparison-check">&#10003;</span></td>
+                </tr>
+                <tr>
+                  <td>Contractor management</td>
+                  <td class="highlight"><span class="comparison-check">&#10003;</span></td>
+                  <td><span class="comparison-cross">&#10007;</span></td>
+                </tr>
+                <tr>
+                  <td>Analytics</td>
+                  <td class="highlight"><span class="comparison-check">&#10003;</span></td>
+                  <td><span class="comparison-partial">Basic only</span></td>
+                </tr>
+                <tr>
+                  <td>API access</td>
+                  <td class="highlight"><span class="comparison-check">&#10003;</span></td>
+                  <td><span class="comparison-cross">&#10007;</span></td>
+                </tr>
+                <tr>
+                  <td>Badge printing</td>
+                  <td class="highlight"><span class="comparison-check">&#10003;</span></td>
+                  <td><span class="comparison-partial">Add-on</span></td>
+                </tr>
+                <tr>
+                  <td>Offline mode</td>
+                  <td class="highlight"><span class="comparison-check">&#10003;</span></td>
+                  <td><span class="comparison-cross">&#10007;</span></td>
+                </tr>
+                <tr>
+                  <td>Evacuation mode</td>
+                  <td class="highlight"><span class="comparison-check">&#10003;</span></td>
+                  <td><span class="comparison-partial">Basic</span></td>
+                </tr>
+                <tr>
+                  <td>GDPR tools</td>
+                  <td class="highlight"><span class="comparison-check">Built-in</span></td>
+                  <td><span class="comparison-check">&#10003;</span></td>
+                </tr>
+                <tr>
+                  <td>UK data hosting</td>
+                  <td class="highlight"><span class="comparison-check">&#10003;</span></td>
+                  <td><span class="comparison-cross">&#10007;</span></td>
+                </tr>
+                <tr>
+                  <td>Setup time</td>
+                  <td class="highlight"><span class="comparison-check">&lt; 1 hour</span></td>
+                  <td><span class="comparison-check">&lt; 1 hour</span></td>
+                </tr>
+                <tr>
+                  <td>Free trial</td>
+                  <td class="highlight"><span class="comparison-check">14 days</span></td>
+                  <td><span class="comparison-check">14 days</span></td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+
+          <div class="savings-callout animate-on-scroll fade-in-up">
+            SwipedOn is cheaper, but you'll pay more for add-ons. Porter includes everything.
+          </div>
+
+          <div class="compare-cta animate-on-scroll fade-in-up">
+            <a href="pricing.html" class="btn btn-primary">Upgrade from SwipedOn to Porter</a>
+          </div>
+        </div>
+
+        <!-- ============================
+             TAB 4: Porter vs The Receptionist
+             ============================ -->
+        <div class="tab-content" data-tab="receptionist" id="receptionist">
+          <p class="compare-intro animate-on-scroll fade-in-up">
+            The Receptionist for iPad offers solid features but limits advanced capabilities to premium tiers.
+          </p>
+
+          <div class="price-highlight animate-on-scroll fade-in-up">
+            <strong>Porter: &pound;79/mo &nbsp;vs&nbsp; The Receptionist: $99/mo</strong>
+            <span class="save-badge">Save 20%</span>
+          </div>
+
+          <div class="comparison-wrapper animate-on-scroll fade-in-up">
+            <table class="comparison-table">
+              <thead>
+                <tr>
+                  <th>Feature</th>
+                  <th class="highlight">Porter</th>
+                  <th>The Receptionist</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td>Monthly price</td>
+                  <td class="highlight"><strong>&pound;79</strong></td>
+                  <td>$99</td>
+                </tr>
+                <tr>
+                  <td>Annual contract required</td>
+                  <td class="highlight"><span class="comparison-check">No</span></td>
+                  <td><span class="comparison-partial">Yes (for best price)</span></td>
+                </tr>
+                <tr>
+                  <td>All features included</td>
+                  <td class="highlight"><span class="comparison-check">&#10003;</span></td>
+                  <td><span class="comparison-cross">&#10007;</span> <span class="comparison-partial">(tiered)</span></td>
+                </tr>
+                <tr>
+                  <td>Device support</td>
+                  <td class="highlight"><span class="comparison-check">Any device</span></td>
+                  <td><span class="comparison-partial">iPad only</span></td>
+                </tr>
+                <tr>
+                  <td>Kiosk app</td>
+                  <td class="highlight"><span class="comparison-check">&#10003;</span></td>
+                  <td><span class="comparison-check">&#10003;</span></td>
+                </tr>
+                <tr>
+                  <td>Host notifications</td>
+                  <td class="highlight"><span class="comparison-check">Email, SMS, Slack, Teams</span></td>
+                  <td><span class="comparison-check">Email, SMS, Slack</span></td>
+                </tr>
+                <tr>
+                  <td>SMS notifications</td>
+                  <td class="highlight"><span class="comparison-check">Included</span></td>
+                  <td><span class="comparison-check">Included</span></td>
+                </tr>
+                <tr>
+                  <td>Pre-registration</td>
+                  <td class="highlight"><span class="comparison-check">&#10003;</span></td>
+                  <td><span class="comparison-check">&#10003;</span></td>
+                </tr>
+                <tr>
+                  <td>Contractor management</td>
+                  <td class="highlight"><span class="comparison-check">&#10003;</span></td>
+                  <td><span class="comparison-partial">Premium only</span></td>
+                </tr>
+                <tr>
+                  <td>Analytics</td>
+                  <td class="highlight"><span class="comparison-check">&#10003;</span></td>
+                  <td><span class="comparison-partial">Premium only</span></td>
+                </tr>
+                <tr>
+                  <td>API access</td>
+                  <td class="highlight"><span class="comparison-check">&#10003;</span></td>
+                  <td><span class="comparison-cross">&#10007;</span></td>
+                </tr>
+                <tr>
+                  <td>Badge printing</td>
+                  <td class="highlight"><span class="comparison-check">&#10003;</span></td>
+                  <td><span class="comparison-check">&#10003;</span></td>
+                </tr>
+                <tr>
+                  <td>Offline mode</td>
+                  <td class="highlight"><span class="comparison-check">&#10003;</span></td>
+                  <td><span class="comparison-cross">&#10007;</span></td>
+                </tr>
+                <tr>
+                  <td>Evacuation mode</td>
+                  <td class="highlight"><span class="comparison-check">&#10003;</span></td>
+                  <td><span class="comparison-check">&#10003;</span></td>
+                </tr>
+                <tr>
+                  <td>GDPR tools</td>
+                  <td class="highlight"><span class="comparison-check">Built-in</span></td>
+                  <td><span class="comparison-check">&#10003;</span></td>
+                </tr>
+                <tr>
+                  <td>UK data hosting</td>
+                  <td class="highlight"><span class="comparison-check">&#10003;</span></td>
+                  <td><span class="comparison-cross">&#10007;</span></td>
+                </tr>
+                <tr>
+                  <td>Setup time</td>
+                  <td class="highlight"><span class="comparison-check">&lt; 1 hour</span></td>
+                  <td><span class="comparison-check">&lt; 1 hour</span></td>
+                </tr>
+                <tr>
+                  <td>Free trial</td>
+                  <td class="highlight"><span class="comparison-check">14 days</span></td>
+                  <td><span class="comparison-check">14 days</span></td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+
+          <div class="compare-cta animate-on-scroll fade-in-up">
+            <a href="pricing.html" class="btn btn-primary">Switch to Porter</a>
+          </div>
+        </div>
+
+      </div><!-- /.tabs -->
+
+    </div>
+  </section>
+
+  <!-- ============================================================
+       5. WHY COMPANIES CHOOSE PORTER
+       ============================================================ -->
+  <section style="padding: var(--space-24) 0; background: var(--color-gray-50);" aria-label="Why choose Porter">
+    <div class="container">
+
+      <div class="section-header animate-on-scroll fade-in-up">
+        <span class="section-label">The Porter advantage</span>
+        <h2>Why companies choose Porter</h2>
+      </div>
+
+      <div class="why-grid stagger-children">
+        <div class="why-card animate-on-scroll fade-in-up">
+          <div class="why-icon" aria-hidden="true">&#128176;</div>
+          <h3>76% cheaper</h3>
+          <p>Than the market leader, with all features included</p>
+        </div>
+        <div class="why-card animate-on-scroll fade-in-up">
+          <div class="why-icon" aria-hidden="true">&#128241;</div>
+          <h3>Any device</h3>
+          <p>No iPad requirement. Use tablets, laptops, or phones you already own</p>
+        </div>
+        <div class="why-card animate-on-scroll fade-in-up">
+          <div class="why-icon" aria-hidden="true">&#128275;</div>
+          <h3>No lock-in</h3>
+          <p>Month-to-month billing. No annual contracts required</p>
+        </div>
+        <div class="why-card animate-on-scroll fade-in-up">
+          <div class="why-icon" aria-hidden="true">&#127468;&#127463;</div>
+          <h3>Built for the UK</h3>
+          <p>UK data hosting, GDPR tools, GBP billing, UK support</p>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ============================================================
+       6. CTA SECTION
+       ============================================================ -->
+  <section style="padding: var(--space-24) 0;" aria-label="Call to action">
+    <div class="container">
+      <div class="cta-banner animate-on-scroll fade-in-up">
+        <h2>Ready to make the switch?</h2>
+        <p>Start your 14-day free trial and see the difference. We'll even help you migrate for free.</p>
+        <div style="display: flex; gap: var(--space-4); justify-content: center; flex-wrap: wrap;">
+          <a href="pricing.html" class="btn btn-primary">Start Free Trial</a>
+          <a href="contact.html" class="btn btn-white">Book a Demo</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================================================
+       7. FOOTER
+       ============================================================ -->
+  <footer class="footer" role="contentinfo">
+    <div class="container">
+      <div class="footer-grid">
+        <!-- Brand column -->
+        <div class="footer-brand">
+          <a href="index.html" class="nav-logo" aria-label="Porter home">
+            <span class="logo-icon" aria-hidden="true">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg>
+            </span>
+            Porter
+          </a>
+          <p>Enterprise visitor management at SMB prices. Built for UK businesses.</p>
+
+          <!-- Newsletter -->
+          <div class="footer-newsletter">
+            <p>Get product updates and tips.</p>
+            <form class="newsletter-form" aria-label="Newsletter signup">
+              <input type="email" placeholder="you@company.com" aria-label="Email address" required>
+              <button type="submit">Subscribe</button>
+            </form>
+          </div>
+
+          <!-- Social -->
+          <div class="footer-social">
+            <a href="https://www.linkedin.com/company/getporter" aria-label="LinkedIn" target="_blank" rel="noopener noreferrer">
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg>
+            </a>
+            <a href="https://twitter.com/getporter" aria-label="X (formerly Twitter)" target="_blank" rel="noopener noreferrer">
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg>
+            </a>
+          </div>
+        </div>
+
+        <!-- Product -->
+        <div class="footer-column">
+          <h4>Product</h4>
+          <ul>
+            <li><a href="features.html">Features</a></li>
+            <li><a href="pricing.html">Pricing</a></li>
+            <li><a href="industries.html">Industries</a></li>
+            <li><a href="compare.html">Compare</a></li>
+          </ul>
+        </div>
+
+        <!-- Company -->
+        <div class="footer-column">
+          <h4>Company</h4>
+          <ul>
+            <li><a href="about.html">About</a></li>
+            <li><a href="blog.html">Blog</a></li>
+            <li><a href="contact.html">Contact</a></li>
+            <li><a href="careers.html">Careers</a></li>
+          </ul>
+        </div>
+
+        <!-- Legal -->
+        <div class="footer-column">
+          <h4>Legal</h4>
+          <ul>
+            <li><a href="privacy.html">Privacy</a></li>
+            <li><a href="terms.html">Terms</a></li>
+            <li><a href="cookies.html">Cookies</a></li>
+            <li><a href="security.html">Security</a></li>
+          </ul>
+        </div>
+
+        <!-- Resources -->
+        <div class="footer-column">
+          <h4>Resources</h4>
+          <ul>
+            <li><a href="help.html">Help Centre</a></li>
+            <li><a href="api-docs.html">API Docs</a></li>
+            <li><a href="status.html">Status</a></li>
+            <li><a href="changelog.html">Changelog</a></li>
+          </ul>
+        </div>
+      </div>
+
+      <!-- Footer bottom -->
+      <div class="footer-bottom">
+        <p>&copy; 2026 Porter. All rights reserved.</p>
+        <p>Made in the UK &#127468;&#127463;</p>
+      </div>
+    </div>
+  </footer>
+
+  <!-- JS -->
+  <script src="main.js"></script>
+</body>
+</html>

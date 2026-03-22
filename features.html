@@ -1,0 +1,1381 @@
+<!DOCTYPE html>
+<html lang="en-GB">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Features — Porter Visitor Management System</title>
+  <meta name="description" content="Explore every feature included with Porter: kiosk app, host notifications, pre-registration, contractor management, analytics, badge printing, API, offline mode, evacuation mode, and GDPR compliance — all for one flat price.">
+  <meta name="keywords" content="visitor management features, kiosk app, host notifications, contractor management, badge printing, evacuation mode, GDPR compliance, visitor analytics">
+  <meta name="author" content="Porter">
+  <link rel="canonical" href="https://getporter.co.uk/features.html">
+
+  <!-- Open Graph -->
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://getporter.co.uk/features.html">
+  <meta property="og:title" content="Features — Porter Visitor Management System">
+  <meta property="og:description" content="Every feature you need to manage visitors professionally. Kiosk app, notifications, contractor management, analytics, badge printing, API, offline mode, evacuation, and GDPR compliance — all included at one price.">
+  <meta property="og:image" content="https://getporter.co.uk/images/og-image.png">
+  <meta property="og:locale" content="en_GB">
+  <meta property="og:site_name" content="Porter">
+
+  <!-- Twitter Card -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Features — Porter Visitor Management System">
+  <meta name="twitter:description" content="Every feature you need to manage visitors professionally. All included at one flat price.">
+  <meta name="twitter:image" content="https://getporter.co.uk/images/og-image.png">
+
+  <link rel="stylesheet" href="styles.css">
+
+  <style>
+    /* Feature detail rows — alternating two-column layout */
+    .feature-detail-row {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: var(--space-16);
+      align-items: center;
+    }
+
+    .feature-detail-row.reverse .feature-detail-text {
+      order: 2;
+    }
+
+    .feature-detail-row.reverse .feature-detail-visual {
+      order: 1;
+    }
+
+    .feature-detail-text h3 {
+      font-size: var(--font-size-3xl);
+      font-weight: 700;
+      letter-spacing: -0.02em;
+      margin-bottom: var(--space-4);
+      color: var(--color-secondary-dark);
+    }
+
+    .section-dark .feature-detail-text h3 {
+      color: var(--color-white);
+    }
+
+    .feature-detail-text .feature-label {
+      display: inline-block;
+      font-size: var(--font-size-sm);
+      font-weight: 600;
+      color: var(--color-primary);
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      margin-bottom: var(--space-3);
+    }
+
+    .section-dark .feature-detail-text .feature-label {
+      color: var(--color-primary-light);
+    }
+
+    .feature-detail-text .feature-desc {
+      font-size: var(--font-size-lg);
+      color: var(--color-gray-500);
+      line-height: 1.7;
+      margin-bottom: var(--space-8);
+    }
+
+    .section-dark .feature-detail-text .feature-desc {
+      color: rgba(255, 255, 255, 0.6);
+    }
+
+    .feature-detail-text ul {
+      list-style: none;
+      padding: 0;
+      margin: 0;
+    }
+
+    .feature-detail-text ul li {
+      position: relative;
+      padding-left: 28px;
+      margin-bottom: var(--space-3);
+      font-size: var(--font-size-base);
+      color: var(--color-gray-600);
+      line-height: 1.6;
+    }
+
+    .section-dark .feature-detail-text ul li {
+      color: rgba(255, 255, 255, 0.7);
+    }
+
+    .feature-detail-text ul li::before {
+      content: '';
+      position: absolute;
+      left: 0;
+      top: 6px;
+      width: 18px;
+      height: 18px;
+      border-radius: 50%;
+      background: rgba(22, 163, 74, 0.12);
+      border: 2px solid var(--color-accent);
+    }
+
+    .feature-detail-text ul li::after {
+      content: '\2713';
+      position: absolute;
+      left: 3px;
+      top: 5px;
+      font-size: 11px;
+      font-weight: 700;
+      color: var(--color-accent);
+    }
+
+    /* Mockup styles for feature visuals */
+    .mockup-notification-stack {
+      display: flex;
+      flex-direction: column;
+      gap: var(--space-4);
+      max-width: 360px;
+      margin: 0 auto;
+    }
+
+    .mockup-notification-card {
+      background: var(--color-white);
+      border-radius: var(--radius-lg);
+      padding: var(--space-5) var(--space-6);
+      box-shadow: var(--shadow-lg);
+      border-left: 4px solid var(--color-primary);
+      display: flex;
+      align-items: center;
+      gap: var(--space-4);
+    }
+
+    .mockup-notification-card.slack {
+      border-left-color: #4A154B;
+    }
+
+    .mockup-notification-card.sms {
+      border-left-color: var(--color-accent);
+    }
+
+    .mockup-notif-icon {
+      width: 36px;
+      height: 36px;
+      border-radius: var(--radius-md);
+      background: rgba(37, 99, 235, 0.1);
+      flex-shrink: 0;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .mockup-notification-card.slack .mockup-notif-icon {
+      background: rgba(74, 21, 75, 0.1);
+    }
+
+    .mockup-notification-card.sms .mockup-notif-icon {
+      background: rgba(22, 163, 74, 0.1);
+    }
+
+    .mockup-notif-lines {
+      flex: 1;
+    }
+
+    .mockup-notif-line {
+      height: 8px;
+      background: var(--color-gray-200);
+      border-radius: var(--radius-sm);
+      margin-bottom: 6px;
+    }
+
+    .mockup-notif-line:last-child {
+      width: 60%;
+      margin-bottom: 0;
+    }
+
+    /* Pre-registration invite mockup */
+    .mockup-invite {
+      max-width: 340px;
+      margin: 0 auto;
+      background: var(--color-white);
+      border-radius: var(--radius-xl);
+      box-shadow: var(--shadow-2xl);
+      overflow: hidden;
+    }
+
+    .mockup-invite-header {
+      background: var(--color-primary);
+      padding: var(--space-6) var(--space-8);
+      text-align: center;
+    }
+
+    .mockup-invite-logo {
+      width: 40px;
+      height: 40px;
+      border-radius: 50%;
+      background: rgba(255, 255, 255, 0.2);
+      margin: 0 auto var(--space-3);
+    }
+
+    .mockup-invite-title {
+      height: 10px;
+      width: 60%;
+      background: rgba(255, 255, 255, 0.5);
+      border-radius: var(--radius-sm);
+      margin: 0 auto;
+    }
+
+    .mockup-invite-body {
+      padding: var(--space-8);
+      text-align: center;
+    }
+
+    .mockup-invite-line {
+      height: 8px;
+      background: var(--color-gray-200);
+      border-radius: var(--radius-sm);
+      margin-bottom: var(--space-3);
+    }
+
+    .mockup-invite-line.short {
+      width: 70%;
+      margin-left: auto;
+      margin-right: auto;
+    }
+
+    .mockup-qr-placeholder {
+      width: 100px;
+      height: 100px;
+      background: var(--color-secondary-dark);
+      border-radius: var(--radius-md);
+      margin: var(--space-6) auto;
+      display: grid;
+      grid-template-columns: repeat(5, 1fr);
+      grid-template-rows: repeat(5, 1fr);
+      gap: 2px;
+      padding: 8px;
+    }
+
+    .mockup-qr-placeholder span {
+      background: rgba(255, 255, 255, 0.3);
+      border-radius: 1px;
+    }
+
+    .mockup-qr-placeholder span:nth-child(odd) {
+      background: rgba(255, 255, 255, 0.8);
+    }
+
+    /* Contractor mockup */
+    .mockup-compliance {
+      max-width: 380px;
+      margin: 0 auto;
+      background: var(--color-white);
+      border-radius: var(--radius-xl);
+      box-shadow: var(--shadow-2xl);
+      padding: var(--space-6);
+    }
+
+    .mockup-compliance-header {
+      display: flex;
+      align-items: center;
+      gap: var(--space-3);
+      margin-bottom: var(--space-6);
+      padding-bottom: var(--space-4);
+      border-bottom: 1px solid var(--color-gray-200);
+    }
+
+    .mockup-compliance-avatar {
+      width: 40px;
+      height: 40px;
+      border-radius: 50%;
+      background: var(--color-primary);
+      opacity: 0.2;
+    }
+
+    .mockup-compliance-name {
+      flex: 1;
+    }
+
+    .mockup-compliance-name span {
+      display: block;
+      height: 8px;
+      background: var(--color-gray-300);
+      border-radius: var(--radius-sm);
+      margin-bottom: 4px;
+    }
+
+    .mockup-compliance-name span:last-child {
+      width: 60%;
+      height: 6px;
+      background: var(--color-gray-200);
+    }
+
+    .mockup-doc-row {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: var(--space-3) 0;
+      border-bottom: 1px solid var(--color-gray-100);
+    }
+
+    .mockup-doc-row:last-child {
+      border-bottom: none;
+    }
+
+    .mockup-doc-label {
+      height: 8px;
+      width: 100px;
+      background: var(--color-gray-200);
+      border-radius: var(--radius-sm);
+    }
+
+    .mockup-doc-status {
+      font-size: 11px;
+      font-weight: 600;
+      padding: 2px 10px;
+      border-radius: var(--radius-full);
+    }
+
+    .mockup-doc-status.valid {
+      background: rgba(22, 163, 74, 0.1);
+      color: var(--color-accent);
+    }
+
+    .mockup-doc-status.expiring {
+      background: rgba(245, 158, 11, 0.1);
+      color: var(--color-warning);
+    }
+
+    .mockup-doc-status.expired {
+      background: rgba(220, 38, 38, 0.1);
+      color: var(--color-error);
+    }
+
+    /* Badge mockup */
+    .mockup-badge-print {
+      width: 220px;
+      margin: 0 auto;
+      background: var(--color-white);
+      border-radius: var(--radius-lg);
+      box-shadow: var(--shadow-xl);
+      overflow: hidden;
+      border: 2px solid var(--color-gray-200);
+    }
+
+    .mockup-badge-stripe {
+      height: 8px;
+      background: var(--color-primary);
+    }
+
+    .mockup-badge-stripe.visitor {
+      background: var(--color-primary);
+    }
+
+    .mockup-badge-stripe.contractor {
+      background: var(--color-warning);
+    }
+
+    .mockup-badge-body {
+      padding: var(--space-6);
+      text-align: center;
+    }
+
+    .mockup-badge-photo {
+      width: 50px;
+      height: 50px;
+      border-radius: 50%;
+      background: var(--color-gray-200);
+      margin: 0 auto var(--space-3);
+    }
+
+    .mockup-badge-name {
+      height: 10px;
+      width: 70%;
+      background: var(--color-gray-300);
+      border-radius: var(--radius-sm);
+      margin: 0 auto var(--space-2);
+    }
+
+    .mockup-badge-detail {
+      height: 6px;
+      width: 50%;
+      background: var(--color-gray-200);
+      border-radius: var(--radius-sm);
+      margin: 0 auto var(--space-2);
+    }
+
+    .mockup-badge-type {
+      display: inline-block;
+      font-size: 9px;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+      padding: 2px 8px;
+      border-radius: var(--radius-full);
+      background: rgba(37, 99, 235, 0.1);
+      color: var(--color-primary);
+      margin-top: var(--space-2);
+    }
+
+    /* API mockup */
+    .mockup-code {
+      max-width: 400px;
+      margin: 0 auto;
+      background: var(--color-secondary-dark);
+      border-radius: var(--radius-xl);
+      overflow: hidden;
+      box-shadow: var(--shadow-2xl);
+      font-family: 'Courier New', monospace;
+      font-size: 13px;
+    }
+
+    .mockup-code-bar {
+      display: flex;
+      align-items: center;
+      gap: var(--space-2);
+      padding: var(--space-3) var(--space-5);
+      background: rgba(255, 255, 255, 0.05);
+      border-bottom: 1px solid rgba(255, 255, 255, 0.06);
+    }
+
+    .mockup-code-body {
+      padding: var(--space-6);
+      color: rgba(255, 255, 255, 0.7);
+      line-height: 1.8;
+    }
+
+    .mockup-code-body .code-keyword {
+      color: #c084fc;
+    }
+
+    .mockup-code-body .code-string {
+      color: #86efac;
+    }
+
+    .mockup-code-body .code-comment {
+      color: rgba(255, 255, 255, 0.3);
+    }
+
+    .mockup-code-body .code-method {
+      color: #93c5fd;
+    }
+
+    /* Offline mockup */
+    .mockup-offline {
+      max-width: 300px;
+      margin: 0 auto;
+      text-align: center;
+    }
+
+    .mockup-offline-device {
+      width: 260px;
+      margin: 0 auto;
+      background: var(--color-secondary-dark);
+      border-radius: 28px;
+      padding: 14px;
+      box-shadow: var(--shadow-2xl);
+      border: 3px solid rgba(255, 255, 255, 0.1);
+    }
+
+    .mockup-offline-screen {
+      background: linear-gradient(180deg, #1a2332, var(--color-secondary));
+      border-radius: 16px;
+      min-height: 300px;
+      padding: var(--space-8) var(--space-6);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      gap: var(--space-4);
+    }
+
+    .mockup-offline-icon {
+      width: 48px;
+      height: 48px;
+      border-radius: 50%;
+      background: rgba(22, 163, 74, 0.15);
+      border: 2px solid var(--color-accent);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: var(--color-accent);
+      font-size: 20px;
+    }
+
+    .mockup-offline-status {
+      font-size: 12px;
+      font-weight: 600;
+      color: var(--color-accent);
+      letter-spacing: 0.05em;
+    }
+
+    .mockup-offline-bars {
+      display: flex;
+      gap: 4px;
+      align-items: flex-end;
+    }
+
+    .mockup-offline-bar {
+      width: 20px;
+      background: rgba(255, 255, 255, 0.08);
+      border-radius: 4px;
+    }
+
+    .mockup-offline-bar.synced {
+      background: rgba(22, 163, 74, 0.3);
+    }
+
+    /* Evacuation mockup */
+    .mockup-evacuation {
+      max-width: 360px;
+      margin: 0 auto;
+      background: var(--color-white);
+      border-radius: var(--radius-xl);
+      box-shadow: var(--shadow-2xl);
+      overflow: hidden;
+    }
+
+    .mockup-evac-header {
+      background: var(--color-error);
+      padding: var(--space-4) var(--space-6);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: var(--space-2);
+      color: var(--color-white);
+      font-weight: 700;
+      font-size: var(--font-size-sm);
+    }
+
+    .mockup-evac-body {
+      padding: var(--space-6);
+    }
+
+    .mockup-evac-row {
+      display: flex;
+      align-items: center;
+      gap: var(--space-3);
+      padding: var(--space-3) 0;
+      border-bottom: 1px solid var(--color-gray-100);
+    }
+
+    .mockup-evac-row:last-child {
+      border-bottom: none;
+    }
+
+    .mockup-evac-avatar {
+      width: 28px;
+      height: 28px;
+      border-radius: 50%;
+      background: var(--color-gray-200);
+      flex-shrink: 0;
+    }
+
+    .mockup-evac-name {
+      flex: 1;
+      height: 8px;
+      background: var(--color-gray-200);
+      border-radius: var(--radius-sm);
+    }
+
+    .mockup-evac-status {
+      font-size: 10px;
+      font-weight: 700;
+      padding: 2px 8px;
+      border-radius: var(--radius-full);
+    }
+
+    .mockup-evac-status.safe {
+      background: rgba(22, 163, 74, 0.1);
+      color: var(--color-accent);
+    }
+
+    .mockup-evac-status.pending {
+      background: rgba(245, 158, 11, 0.1);
+      color: var(--color-warning);
+    }
+
+    /* GDPR / shield mockup */
+    .mockup-shield {
+      width: 200px;
+      margin: 0 auto;
+      text-align: center;
+    }
+
+    .mockup-shield-icon {
+      width: 100px;
+      height: 120px;
+      margin: 0 auto var(--space-6);
+      position: relative;
+    }
+
+    .mockup-shield-icon svg {
+      width: 100%;
+      height: 100%;
+    }
+
+    .mockup-shield-checks {
+      display: flex;
+      flex-direction: column;
+      gap: var(--space-3);
+      text-align: left;
+      max-width: 280px;
+      margin: 0 auto;
+    }
+
+    .mockup-shield-check {
+      display: flex;
+      align-items: center;
+      gap: var(--space-3);
+      font-size: var(--font-size-sm);
+      color: var(--color-gray-600);
+      background: var(--color-white);
+      padding: var(--space-3) var(--space-4);
+      border-radius: var(--radius-md);
+      box-shadow: var(--shadow-sm);
+      border: 1px solid var(--color-gray-200);
+    }
+
+    .mockup-shield-check-icon {
+      width: 20px;
+      height: 20px;
+      border-radius: 50%;
+      background: rgba(22, 163, 74, 0.1);
+      flex-shrink: 0;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: var(--color-accent);
+      font-size: 11px;
+      font-weight: 700;
+    }
+
+    /* Analytics mockup — extends existing dashboard */
+    .mockup-analytics {
+      max-width: 420px;
+      margin: 0 auto;
+    }
+
+    @media (max-width: 768px) {
+      .feature-detail-row {
+        grid-template-columns: 1fr;
+        gap: var(--space-10);
+      }
+
+      .feature-detail-row.reverse .feature-detail-text,
+      .feature-detail-row.reverse .feature-detail-visual {
+        order: unset;
+      }
+
+      .feature-detail-text h3 {
+        font-size: var(--font-size-2xl);
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- ============================================================
+       1. LOADING SCREEN
+       ============================================================ -->
+  <div class="loading-screen loading-overlay" aria-hidden="true">
+    <div class="loading-logo"></div>
+    <div class="loading-spinner"></div>
+    <p class="loading-text">Loading Porter...</p>
+  </div>
+
+  <!-- ============================================================
+       2. NAVIGATION
+       ============================================================ -->
+  <nav class="navbar" role="navigation" aria-label="Main navigation">
+    <div class="container">
+      <a href="index.html" class="nav-logo" aria-label="Porter home">
+        <span class="logo-icon" aria-hidden="true">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg>
+        </span>
+        Porter
+      </a>
+
+      <div class="nav-links">
+        <a href="features.html">Features</a>
+        <a href="pricing.html">Pricing</a>
+        <a href="industries.html">Industries</a>
+        <a href="compare.html">Compare</a>
+        <a href="blog.html">Blog</a>
+        <a href="about.html">About</a>
+      </div>
+
+      <div class="nav-cta">
+        <a href="pricing.html" class="btn-nav btn-nav-primary">Start Free Trial</a>
+      </div>
+
+      <button class="nav-hamburger" aria-label="Open menu" aria-expanded="false">
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
+    </div>
+  </nav>
+
+  <!-- Mobile Menu -->
+  <div class="nav-mobile" role="dialog" aria-label="Mobile navigation menu">
+    <a href="features.html">Features</a>
+    <a href="pricing.html">Pricing</a>
+    <a href="industries.html">Industries</a>
+    <a href="compare.html">Compare</a>
+    <a href="blog.html">Blog</a>
+    <a href="about.html">About</a>
+    <a href="pricing.html" class="btn btn-primary" style="margin-top: 1rem;">Start Free Trial</a>
+  </div>
+
+  <!-- Nav spacer -->
+  <div class="nav-spacer"></div>
+
+  <!-- ============================================================
+       3. HERO — Inner Page
+       ============================================================ -->
+  <section class="hero hero-inner" aria-label="Features hero">
+    <div class="hero-grid-overlay" aria-hidden="true"></div>
+    <div class="container">
+
+      <div class="hero-badge animate-on-scroll fade-in-up">
+        <span class="badge-dot" aria-hidden="true"></span>
+        All features included at &pound;79/mo
+      </div>
+
+      <h1 class="animate-on-scroll fade-in-up delay-1">
+        Everything you need to manage visitors <span class="text-gradient">professionally</span>
+      </h1>
+
+      <p class="hero-subtitle animate-on-scroll fade-in-up delay-2" style="max-width: 600px; margin: 0 auto; font-size: var(--font-size-xl); color: rgba(255,255,255,0.65);">
+        One plan. Every feature. No upgrades needed.
+      </p>
+
+    </div>
+  </section>
+
+  <!-- ============================================================
+       4a. FEATURE — Kiosk App
+       ============================================================ -->
+  <section class="section-light" id="kiosk" aria-label="Kiosk App feature">
+    <div class="container">
+      <div class="feature-detail-row">
+
+        <div class="feature-detail-visual animate-on-scroll fade-in-left">
+          <div class="mockup-kiosk">
+            <div class="mockup-kiosk-screen">
+              <div class="mockup-kiosk-logo"></div>
+              <div class="mockup-kiosk-input"></div>
+              <div class="mockup-kiosk-input"></div>
+              <div class="mockup-kiosk-btn" style="margin-top: var(--space-4);"></div>
+            </div>
+          </div>
+        </div>
+
+        <div class="feature-detail-text animate-on-scroll fade-in-right">
+          <span class="feature-label">Kiosk App</span>
+          <h3>Turn any tablet into a professional visitor kiosk</h3>
+          <p class="feature-desc">
+            No dedicated hardware required. Porter runs on any device with a browser, so you can use the iPads, Android tablets, or laptops you already own. Customise the welcome screen with your branding and get visitors checked in within seconds.
+          </p>
+          <ul>
+            <li>Works on iPad, Android, any browser — no dedicated hardware</li>
+            <li>Photo capture with consent</li>
+            <li>Digital NDA and document signing</li>
+            <li>QR code check-in for pre-registered visitors</li>
+            <li>Custom branding — your logo, colours, welcome message</li>
+          </ul>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================================================
+       4b. FEATURE — Host Notifications
+       ============================================================ -->
+  <section id="notifications" aria-label="Host Notifications feature">
+    <div class="container">
+      <div class="feature-detail-row reverse">
+
+        <div class="feature-detail-text animate-on-scroll fade-in-left">
+          <span class="feature-label">Host Notifications</span>
+          <h3>Your host knows the moment their visitor arrives</h3>
+          <p class="feature-desc">
+            Instant alerts across every channel your team already uses. Email, SMS, Slack, and Microsoft Teams — all included at no extra cost. Customise notification templates and enable two-way messaging with visitors.
+          </p>
+          <ul>
+            <li>Instant email notifications when visitors arrive</li>
+            <li>SMS alerts (included, no extra cost)</li>
+            <li>Slack and Microsoft Teams integration</li>
+            <li>Two-way messaging with visitors</li>
+            <li>Customisable notification templates</li>
+          </ul>
+        </div>
+
+        <div class="feature-detail-visual animate-on-scroll fade-in-right">
+          <div class="mockup-notification-stack">
+            <div class="mockup-notification-card">
+              <div class="mockup-notif-icon">
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#2563eb" stroke-width="2"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="M22 4l-10 8L2 4"/></svg>
+              </div>
+              <div class="mockup-notif-lines">
+                <div class="mockup-notif-line" style="width: 80%;"></div>
+                <div class="mockup-notif-line"></div>
+              </div>
+            </div>
+            <div class="mockup-notification-card sms">
+              <div class="mockup-notif-icon">
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#16a34a" stroke-width="2"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg>
+              </div>
+              <div class="mockup-notif-lines">
+                <div class="mockup-notif-line" style="width: 90%;"></div>
+                <div class="mockup-notif-line"></div>
+              </div>
+            </div>
+            <div class="mockup-notification-card slack">
+              <div class="mockup-notif-icon">
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#4A154B" stroke-width="2"><rect x="13" y="2" width="3" height="8" rx="1.5"/><rect x="8" y="14" width="3" height="8" rx="1.5"/><rect x="2" y="8" width="8" height="3" rx="1.5"/><rect x="14" y="13" width="8" height="3" rx="1.5"/></svg>
+              </div>
+              <div class="mockup-notif-lines">
+                <div class="mockup-notif-line" style="width: 75%;"></div>
+                <div class="mockup-notif-line"></div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================================================
+       4c. FEATURE — Pre-Registration
+       ============================================================ -->
+  <section class="section-light" id="pre-registration" aria-label="Pre-Registration feature">
+    <div class="container">
+      <div class="feature-detail-row">
+
+        <div class="feature-detail-visual animate-on-scroll fade-in-left">
+          <div class="mockup-invite">
+            <div class="mockup-invite-header">
+              <div class="mockup-invite-logo"></div>
+              <div class="mockup-invite-title"></div>
+            </div>
+            <div class="mockup-invite-body">
+              <div class="mockup-invite-line"></div>
+              <div class="mockup-invite-line short"></div>
+              <div class="mockup-invite-line" style="width: 85%;margin-left:auto;margin-right:auto;"></div>
+              <div class="mockup-qr-placeholder" aria-label="QR code placeholder">
+                <span></span><span></span><span></span><span></span><span></span>
+                <span></span><span></span><span></span><span></span><span></span>
+                <span></span><span></span><span></span><span></span><span></span>
+                <span></span><span></span><span></span><span></span><span></span>
+                <span></span><span></span><span></span><span></span><span></span>
+              </div>
+              <div class="mockup-invite-line short"></div>
+            </div>
+          </div>
+        </div>
+
+        <div class="feature-detail-text animate-on-scroll fade-in-right">
+          <span class="feature-label">Pre-Registration</span>
+          <h3>Visitors arrive pre-approved for a faster check-in</h3>
+          <p class="feature-desc">
+            Send polished invite emails branded with your company identity. Visitors receive a QR code they can scan on arrival for instant check-in — no queues, no waiting. Bulk-invite attendees via CSV upload for large events.
+          </p>
+          <ul>
+            <li>Send professional invite emails with your branding</li>
+            <li>QR code for instant check-in on arrival</li>
+            <li>Bulk invite via CSV upload</li>
+            <li>Calendar integration (Google, Outlook)</li>
+            <li>Visitors arrive pre-approved — faster check-in</li>
+          </ul>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================================================
+       4d. FEATURE — Contractor Management
+       ============================================================ -->
+  <section id="contractor-management" aria-label="Contractor Management feature">
+    <div class="container">
+      <div class="feature-detail-row reverse">
+
+        <div class="feature-detail-text animate-on-scroll fade-in-left">
+          <span class="feature-label">Contractor Management</span>
+          <h3>Stay compliant without the paperwork</h3>
+          <p class="feature-desc">
+            Track contractor documents, certifications, and insurance automatically. Porter alerts you before anything expires and blocks check-in for non-compliant contractors. Full compliance visibility from a single dashboard.
+          </p>
+          <ul>
+            <li>Document upload (insurance, certifications, ID)</li>
+            <li>Automatic expiry tracking with alerts</li>
+            <li>Compliance dashboard per contractor</li>
+            <li>Site-specific induction workflows</li>
+            <li>Watchlist and approval gates</li>
+          </ul>
+        </div>
+
+        <div class="feature-detail-visual animate-on-scroll fade-in-right">
+          <div class="mockup-compliance">
+            <div class="mockup-compliance-header">
+              <div class="mockup-compliance-avatar"></div>
+              <div class="mockup-compliance-name">
+                <span style="width: 80%;"></span>
+                <span></span>
+              </div>
+            </div>
+            <div class="mockup-doc-row">
+              <div class="mockup-doc-label"></div>
+              <span class="mockup-doc-status valid">Valid</span>
+            </div>
+            <div class="mockup-doc-row">
+              <div class="mockup-doc-label" style="width: 120px;"></div>
+              <span class="mockup-doc-status valid">Valid</span>
+            </div>
+            <div class="mockup-doc-row">
+              <div class="mockup-doc-label" style="width: 90px;"></div>
+              <span class="mockup-doc-status expiring">Expiring</span>
+            </div>
+            <div class="mockup-doc-row">
+              <div class="mockup-doc-label" style="width: 110px;"></div>
+              <span class="mockup-doc-status expired">Expired</span>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================================================
+       4e. FEATURE — Analytics & Reporting
+       ============================================================ -->
+  <section class="section-light" id="analytics" aria-label="Analytics and Reporting feature">
+    <div class="container">
+      <div class="feature-detail-row">
+
+        <div class="feature-detail-visual animate-on-scroll fade-in-left">
+          <div class="mockup-analytics">
+            <div class="mockup-dashboard">
+              <div class="mockup-browser-bar">
+                <div class="mockup-dot red"></div>
+                <div class="mockup-dot yellow"></div>
+                <div class="mockup-dot green"></div>
+                <div class="mockup-url-bar"></div>
+              </div>
+              <div class="mockup-content">
+                <div class="mockup-sidebar">
+                  <div class="mockup-sidebar-item active"></div>
+                  <div class="mockup-sidebar-item"></div>
+                  <div class="mockup-sidebar-item"></div>
+                  <div class="mockup-sidebar-item"></div>
+                </div>
+                <div class="mockup-main">
+                  <div class="mockup-stat-row">
+                    <div class="mockup-stat-box"></div>
+                    <div class="mockup-stat-box"></div>
+                    <div class="mockup-stat-box"></div>
+                  </div>
+                  <div class="mockup-chart"></div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="feature-detail-text animate-on-scroll fade-in-right">
+          <span class="feature-label">Analytics &amp; Reporting</span>
+          <h3>Data-driven insights into your visitor traffic</h3>
+          <p class="feature-desc">
+            See who is visiting, when, and where across all your locations. Identify peak hours, spot trends, and share automated reports with your team. Export anything to CSV or PDF for compliance audits.
+          </p>
+          <ul>
+            <li>Real-time visitor dashboard</li>
+            <li>Visitor trends and peak hours analysis</li>
+            <li>Location-by-location comparison</li>
+            <li>Scheduled email reports (daily, weekly, monthly)</li>
+            <li>Export to CSV/PDF</li>
+            <li>Custom date range filtering</li>
+          </ul>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================================================
+       4f. FEATURE — Badge Printing
+       ============================================================ -->
+  <section id="badge-printing" aria-label="Badge Printing feature">
+    <div class="container">
+      <div class="feature-detail-row reverse">
+
+        <div class="feature-detail-text animate-on-scroll fade-in-left">
+          <span class="feature-label">Badge Printing</span>
+          <h3>Professional visitor badges, printed instantly</h3>
+          <p class="feature-desc">
+            Design custom badges with a drag-and-drop editor and have them print automatically the moment a visitor checks in. Colour-code badges by visitor type so your team can tell at a glance who should be where.
+          </p>
+          <ul>
+            <li>Custom badge designer — drag and drop</li>
+            <li>Auto-print on check-in</li>
+            <li>Works with Dymo, Brother, and AirPrint</li>
+            <li>Include photo, visitor type, host name, time</li>
+            <li>Colour-coded by visitor type</li>
+          </ul>
+        </div>
+
+        <div class="feature-detail-visual animate-on-scroll fade-in-right">
+          <div style="display: flex; gap: var(--space-6); justify-content: center; flex-wrap: wrap;">
+            <div class="mockup-badge-print">
+              <div class="mockup-badge-stripe visitor"></div>
+              <div class="mockup-badge-body">
+                <div class="mockup-badge-photo"></div>
+                <div class="mockup-badge-name"></div>
+                <div class="mockup-badge-detail"></div>
+                <div class="mockup-badge-detail" style="width: 40%;"></div>
+                <span class="mockup-badge-type">Visitor</span>
+              </div>
+            </div>
+            <div class="mockup-badge-print">
+              <div class="mockup-badge-stripe contractor"></div>
+              <div class="mockup-badge-body">
+                <div class="mockup-badge-photo"></div>
+                <div class="mockup-badge-name"></div>
+                <div class="mockup-badge-detail"></div>
+                <div class="mockup-badge-detail" style="width: 40%;"></div>
+                <span class="mockup-badge-type" style="background: rgba(245,158,11,0.1); color: var(--color-warning);">Contractor</span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================================================
+       4g. FEATURE — API & Webhooks
+       ============================================================ -->
+  <section class="section-dark" id="api" aria-label="API and Webhooks feature">
+    <div class="container">
+      <div class="feature-detail-row">
+
+        <div class="feature-detail-visual animate-on-scroll fade-in-left">
+          <div class="mockup-code">
+            <div class="mockup-code-bar">
+              <div class="mockup-dot red"></div>
+              <div class="mockup-dot yellow"></div>
+              <div class="mockup-dot green"></div>
+            </div>
+            <div class="mockup-code-body">
+              <span class="code-comment">// Register a visitor</span><br>
+              <span class="code-keyword">const</span> response = <span class="code-keyword">await</span> <span class="code-method">fetch</span>(<br>
+              &nbsp;&nbsp;<span class="code-string">'/api/v1/visitors'</span>, {<br>
+              &nbsp;&nbsp;&nbsp;&nbsp;method: <span class="code-string">'POST'</span>,<br>
+              &nbsp;&nbsp;&nbsp;&nbsp;headers: {<br>
+              &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Authorization: <span class="code-string">'Bearer &lt;token&gt;'</span><br>
+              &nbsp;&nbsp;&nbsp;&nbsp;},<br>
+              &nbsp;&nbsp;&nbsp;&nbsp;body: <span class="code-method">JSON</span>.<span class="code-method">stringify</span>({<br>
+              &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;name: <span class="code-string">'Jane Smith'</span>,<br>
+              &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;host: <span class="code-string">'tom@acme.co'</span><br>
+              &nbsp;&nbsp;&nbsp;&nbsp;})<br>
+              &nbsp;&nbsp;}<br>
+              );<br>
+              <span class="code-comment">// &rarr; 201 Created</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="feature-detail-text animate-on-scroll fade-in-right">
+          <span class="feature-label">API &amp; Webhooks</span>
+          <h3>Build on Porter with a developer-first API</h3>
+          <p class="feature-desc">
+            Integrate Porter into your existing tech stack with a full REST API and real-time webhooks. Connect to thousands of apps via Zapier, or build custom integrations with comprehensive documentation and a sandbox environment.
+          </p>
+          <ul>
+            <li>Full REST API with comprehensive documentation</li>
+            <li>Webhook events for check-in, check-out, pre-registration</li>
+            <li>Zapier connector for 5,000+ app integrations</li>
+            <li>OAuth 2.0 authentication</li>
+            <li>Rate limiting and sandbox environment</li>
+          </ul>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================================================
+       4h. FEATURE — Offline Mode
+       ============================================================ -->
+  <section id="offline-mode" aria-label="Offline Mode feature">
+    <div class="container">
+      <div class="feature-detail-row reverse">
+
+        <div class="feature-detail-text animate-on-scroll fade-in-left">
+          <span class="feature-label">Offline Mode</span>
+          <h3>Never miss a check-in, even without internet</h3>
+          <p class="feature-desc">
+            Porter stores data locally and keeps the kiosk fully operational during network outages. When connectivity returns, everything syncs automatically. No data loss, no gaps in your visitor log.
+          </p>
+          <ul>
+            <li>Full check-in capability without internet</li>
+            <li>Local data storage and encryption</li>
+            <li>Automatic sync when connectivity returns</li>
+            <li>Queue management for pending notifications</li>
+            <li>No data loss guaranteed</li>
+          </ul>
+        </div>
+
+        <div class="feature-detail-visual animate-on-scroll fade-in-right">
+          <div class="mockup-offline">
+            <div class="mockup-offline-device">
+              <div class="mockup-offline-screen">
+                <div class="mockup-offline-icon">
+                  <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+                </div>
+                <div class="mockup-offline-status">OFFLINE MODE ACTIVE</div>
+                <div class="mockup-offline-bars">
+                  <div class="mockup-offline-bar synced" style="height: 20px;"></div>
+                  <div class="mockup-offline-bar synced" style="height: 30px;"></div>
+                  <div class="mockup-offline-bar synced" style="height: 25px;"></div>
+                  <div class="mockup-offline-bar" style="height: 35px;"></div>
+                  <div class="mockup-offline-bar" style="height: 15px;"></div>
+                </div>
+                <div style="font-size: 11px; color: rgba(255,255,255,0.4); margin-top: var(--space-2);">3 check-ins queued</div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================================================
+       4i. FEATURE — Evacuation Mode
+       ============================================================ -->
+  <section class="section-light" id="evacuation" aria-label="Evacuation Mode feature">
+    <div class="container">
+      <div class="feature-detail-row">
+
+        <div class="feature-detail-visual animate-on-scroll fade-in-left">
+          <div class="mockup-evacuation">
+            <div class="mockup-evac-header">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M10.29 3.86L1.82 18a2 2 0 0 0 1.71 3h16.94a2 2 0 0 0 1.71-3L13.71 3.86a2 2 0 0 0-3.42 0z"/><line x1="12" y1="9" x2="12" y2="13"/><line x1="12" y1="17" x2="12.01" y2="17"/></svg>
+              EVACUATION ACTIVE
+            </div>
+            <div class="mockup-evac-body">
+              <div class="mockup-evac-row">
+                <div class="mockup-evac-avatar"></div>
+                <div class="mockup-evac-name" style="width: 60%;"></div>
+                <span class="mockup-evac-status safe">Safe</span>
+              </div>
+              <div class="mockup-evac-row">
+                <div class="mockup-evac-avatar"></div>
+                <div class="mockup-evac-name" style="width: 50%;"></div>
+                <span class="mockup-evac-status safe">Safe</span>
+              </div>
+              <div class="mockup-evac-row">
+                <div class="mockup-evac-avatar"></div>
+                <div class="mockup-evac-name" style="width: 70%;"></div>
+                <span class="mockup-evac-status pending">Pending</span>
+              </div>
+              <div class="mockup-evac-row">
+                <div class="mockup-evac-avatar"></div>
+                <div class="mockup-evac-name" style="width: 55%;"></div>
+                <span class="mockup-evac-status pending">Pending</span>
+              </div>
+              <div class="mockup-evac-row">
+                <div class="mockup-evac-avatar"></div>
+                <div class="mockup-evac-name" style="width: 65%;"></div>
+                <span class="mockup-evac-status safe">Safe</span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="feature-detail-text animate-on-scroll fade-in-right">
+          <span class="feature-label">Evacuation Mode</span>
+          <h3>Account for every person on-site in seconds</h3>
+          <p class="feature-desc">
+            Activate evacuation mode with a single tap and instantly see a live roll call of everyone on-site. Mark visitors and staff as safe as they are accounted for, and export the roll call report for your records.
+          </p>
+          <ul>
+            <li>One-tap evacuation activation</li>
+            <li>Real-time roll call — see who's on-site</li>
+            <li>Mark visitors safe as they're accounted for</li>
+            <li>Export roll call report instantly</li>
+            <li>Multi-location evacuation coordination</li>
+          </ul>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================================================
+       4j. FEATURE — GDPR Compliance
+       ============================================================ -->
+  <section id="gdpr" aria-label="GDPR Compliance feature">
+    <div class="container">
+      <div class="feature-detail-row reverse">
+
+        <div class="feature-detail-text animate-on-scroll fade-in-left">
+          <span class="feature-label">GDPR Compliance</span>
+          <h3>Built for UK and EU data protection from day one</h3>
+          <p class="feature-desc">
+            Porter gives you full control over visitor data retention, automated deletion schedules, and one-click right to erasure. Every data access is logged in a full audit trail. Data is stored in UK data centres with a Data Processing Agreement included.
+          </p>
+          <ul>
+            <li>Configurable data retention policies</li>
+            <li>Automated data deletion schedules</li>
+            <li>Right to erasure — one-click visitor data removal</li>
+            <li>Full audit log of all data access</li>
+            <li>UK data centre hosting</li>
+            <li>Data Processing Agreement included</li>
+          </ul>
+        </div>
+
+        <div class="feature-detail-visual animate-on-scroll fade-in-right">
+          <div class="mockup-shield">
+            <div class="mockup-shield-icon">
+              <svg viewBox="0 0 100 120" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path d="M50 5L10 25v35c0 28 17 45 40 55 23-10 40-27 40-55V25L50 5z" fill="rgba(37,99,235,0.08)" stroke="#2563eb" stroke-width="3"/>
+                <path d="M38 60l10 10 20-20" stroke="#16a34a" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/>
+              </svg>
+            </div>
+            <div class="mockup-shield-checks">
+              <div class="mockup-shield-check">
+                <span class="mockup-shield-check-icon">&#10003;</span>
+                Data retention controls
+              </div>
+              <div class="mockup-shield-check">
+                <span class="mockup-shield-check-icon">&#10003;</span>
+                Right to erasure
+              </div>
+              <div class="mockup-shield-check">
+                <span class="mockup-shield-check-icon">&#10003;</span>
+                Full audit log
+              </div>
+              <div class="mockup-shield-check">
+                <span class="mockup-shield-check-icon">&#10003;</span>
+                UK data centres
+              </div>
+              <div class="mockup-shield-check">
+                <span class="mockup-shield-check-icon">&#10003;</span>
+                DPA included
+              </div>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================================================
+       5. CTA SECTION
+       ============================================================ -->
+  <section style="padding-bottom: 100px;" aria-label="Call to action">
+    <div class="container">
+      <div class="cta-banner animate-on-scroll scale-in">
+        <h2>Every feature. One price. No surprises.</h2>
+        <p>Start your 14-day free trial — no credit card required.</p>
+        <div class="flex-center" style="gap: 1rem; flex-wrap: wrap;">
+          <a href="pricing.html" class="btn btn-white btn-large">Start your 14-day free trial</a>
+          <a href="pricing.html" class="btn btn-ghost btn-large">See pricing</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================================================
+       6. FOOTER
+       ============================================================ -->
+  <footer class="footer" role="contentinfo">
+    <div class="container">
+      <div class="footer-grid">
+        <!-- Brand column -->
+        <div class="footer-brand">
+          <a href="index.html" class="nav-logo" aria-label="Porter home">
+            <span class="logo-icon" aria-hidden="true">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg>
+            </span>
+            Porter
+          </a>
+          <p>Enterprise visitor management at SMB prices. Built for UK businesses.</p>
+
+          <!-- Newsletter -->
+          <div class="footer-newsletter">
+            <p>Get product updates and tips.</p>
+            <form class="newsletter-form" aria-label="Newsletter signup">
+              <input type="email" placeholder="you@company.com" aria-label="Email address" required>
+              <button type="submit">Subscribe</button>
+            </form>
+          </div>
+
+          <!-- Social -->
+          <div class="footer-social">
+            <a href="https://www.linkedin.com/company/getporter" aria-label="LinkedIn" target="_blank" rel="noopener noreferrer">
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg>
+            </a>
+            <a href="https://twitter.com/getporter" aria-label="X (formerly Twitter)" target="_blank" rel="noopener noreferrer">
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg>
+            </a>
+          </div>
+        </div>
+
+        <!-- Product -->
+        <div class="footer-column">
+          <h4>Product</h4>
+          <ul>
+            <li><a href="features.html">Features</a></li>
+            <li><a href="pricing.html">Pricing</a></li>
+            <li><a href="industries.html">Industries</a></li>
+            <li><a href="compare.html">Compare</a></li>
+          </ul>
+        </div>
+
+        <!-- Company -->
+        <div class="footer-column">
+          <h4>Company</h4>
+          <ul>
+            <li><a href="about.html">About</a></li>
+            <li><a href="blog.html">Blog</a></li>
+            <li><a href="contact.html">Contact</a></li>
+            <li><a href="careers.html">Careers</a></li>
+          </ul>
+        </div>
+
+        <!-- Legal -->
+        <div class="footer-column">
+          <h4>Legal</h4>
+          <ul>
+            <li><a href="privacy.html">Privacy</a></li>
+            <li><a href="terms.html">Terms</a></li>
+            <li><a href="cookies.html">Cookies</a></li>
+            <li><a href="security.html">Security</a></li>
+          </ul>
+        </div>
+
+        <!-- Resources -->
+        <div class="footer-column">
+          <h4>Resources</h4>
+          <ul>
+            <li><a href="help.html">Help Centre</a></li>
+            <li><a href="api-docs.html">API Docs</a></li>
+            <li><a href="status.html">Status</a></li>
+            <li><a href="changelog.html">Changelog</a></li>
+          </ul>
+        </div>
+      </div>
+
+      <!-- Footer bottom -->
+      <div class="footer-bottom">
+        <p>&copy; 2026 Porter. All rights reserved.</p>
+        <p>Made in the UK &#127468;&#127463;</p>
+      </div>
+    </div>
+  </footer>
+
+  <!-- JS -->
+  <script src="main.js"></script>
+</body>
+</html>
