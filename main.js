@@ -399,31 +399,72 @@ document.addEventListener('DOMContentLoaded', () => {
           const originalText = submitBtn.textContent;
           submitBtn.textContent = 'Sending...';
 
-          setTimeout(() => {
-            submitBtn.textContent = 'Sent!';
-            submitBtn.classList.remove('btn-submitting');
-            submitBtn.classList.add('btn-success');
+          const formData = new FormData(contactForm);
+          const payload = {
+            name: formData.get('name'),
+            email: formData.get('email'),
+            company: formData.get('company') || '',
+            phone: formData.get('phone') || '',
+            subject: formData.get('subject') || '',
+            message: formData.get('message'),
+          };
 
-            // Show success message
-            const successMsg = document.createElement('div');
-            successMsg.classList.add('form-success');
-            successMsg.textContent = 'Thank you! Your message has been sent successfully.';
-            contactForm.appendChild(successMsg);
-            successMsg.style.opacity = '0';
-            requestAnimationFrame(() => {
-              successMsg.style.transition = 'opacity 0.4s ease';
-              successMsg.style.opacity = '1';
-            });
+          fetch('/api/contact', {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify(payload),
+          })
+            .then((res) => res.json())
+            .then((data) => {
+              if (data.success) {
+                submitBtn.textContent = 'Sent!';
+                submitBtn.classList.remove('btn-submitting');
+                submitBtn.classList.add('btn-success');
 
-            // Reset after delay
-            setTimeout(() => {
-              contactForm.reset();
+                const successMsg = document.createElement('div');
+                successMsg.classList.add('form-success');
+                successMsg.textContent = 'Thank you! Your message has been sent successfully.';
+                contactForm.appendChild(successMsg);
+                successMsg.style.opacity = '0';
+                requestAnimationFrame(() => {
+                  successMsg.style.transition = 'opacity 0.4s ease';
+                  successMsg.style.opacity = '1';
+                });
+
+                setTimeout(() => {
+                  contactForm.reset();
+                  submitBtn.textContent = originalText;
+                  submitBtn.disabled = false;
+                  submitBtn.classList.remove('btn-success');
+                  successMsg.remove();
+                }, 4000);
+              } else {
+                submitBtn.textContent = originalText;
+                submitBtn.disabled = false;
+                submitBtn.classList.remove('btn-submitting');
+
+                const errorMsg = document.createElement('div');
+                errorMsg.classList.add('form-error');
+                errorMsg.style.color = 'var(--color-error, #ef4444)';
+                errorMsg.style.marginTop = '1rem';
+                errorMsg.textContent = (data.errors && data.errors[0]) || 'Something went wrong. Please try again.';
+                contactForm.appendChild(errorMsg);
+                setTimeout(() => errorMsg.remove(), 4000);
+              }
+            })
+            .catch(() => {
               submitBtn.textContent = originalText;
               submitBtn.disabled = false;
-              submitBtn.classList.remove('btn-success');
-              successMsg.remove();
-            }, 4000);
-          }, 1200);
+              submitBtn.classList.remove('btn-submitting');
+
+              const errorMsg = document.createElement('div');
+              errorMsg.classList.add('form-error');
+              errorMsg.style.color = 'var(--color-error, #ef4444)';
+              errorMsg.style.marginTop = '1rem';
+              errorMsg.textContent = 'Network error. Please check your connection and try again.';
+              contactForm.appendChild(errorMsg);
+              setTimeout(() => errorMsg.remove(), 4000);
+            });
         }
       }
     });
